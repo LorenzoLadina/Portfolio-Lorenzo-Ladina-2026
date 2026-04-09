@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorenzo Ladina - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-name">Lorenzo Ladina</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#writeups">Write-ups</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero fade">
+    
+    <div class="hero-content">
+      <div class="hero-eyebrow">Penetration Tester · Offensive Security</div>
+      <h1>nerdy friends<br>call me<br><em>whit3g4ndalf</em></h1>
+      <p class="hero-bio">
+      2 years specializing in Active Directory attack chains and red team operations. OSCP+ certified, currently pursuing OSEP. <br> MSc in Computer Science & Engineering at Polimi with a focus on AI-driven pentest automation.  Always looking to improve my skills and learning new things on platform like Hack The Box
+      </p>
+      <div class="hero-pills">
+        <span class="pill">OSCP</span>
+        <span class="pill">OSEP (in progress)</span>
+        <span class="pill">Active Directory</span>
+        <span class="pill">Red Team</span>
+        <span class="pill">Web Application Penetration Testing</span>
+        <span class="pill">LLM Security</span>
+      </div>
+      <div class="hero-links">
+        <a href="#contact" class="btn">Get in touch</a>
+        <a href="#writeups" class="btn btn-ghost">Read write-ups</a>
+      </div>
+    </div>
+
+    <div class="hero-profile-pic-wrapper">
+      <img src="img/ian-mckellen-gandalf-takes-a-break-on-his-macbook-pro.webp" alt="Your Profile" class="hero-profile-pic">
+    </div>
+
+  </div>
+  
+  <div class="main-grid" id="about">
+
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Navigate</div>
+        <ul class="sidebar-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#thesis">Thesis</a></li>
+          <li><a href="#prolabs">Pro Labs HTB</a></li>
+          <li><a href="#writeups">Write-ups HTB</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Quick info</div>
+        <div class="sidebar-meta">
+          <strong>Work Experience</strong>
+          <span>2 years</span>
+          
+          <strong>Focus</strong>
+          <span>Active Directory</span>
+          <span>Red Team Operations</span>
+          
+          <strong>Degree</strong>
+          <span>BSc + MSc</span>
+          <span>Computer Science & Engineering</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content">
+
+      <section class="sec fade" id="skills">
+        <div class="sec-header">
+          <div class="sec-num">01</div>
+          <h2 class="sec-title">Skills & Expertise</h2>
+        </div>
+        <div class="skills-text-block">
+          <p>
+            My main skills focus on attacking Active Directory environments, Red Team operations, and advanced privilege escalation techniques. I’ve developed these skills through real-world work experience, combined with continuous practice on Hack The Box labs, which helped me build a practical and creative approach to exploiting vulnerabilities and bypassing defenses.
+          </p>
+          <p>
+            Alongside infrastructure work, I also have solid experience in web application testing. This lets me work across both web apps and internal systems, giving me a broader view of an organization’s attack surface.
+          </p>
+        </div>
+      </section>
+
+      <section class="sec fade" id="certs">
+        <div class="sec-header">
+          <div class="sec-num">02</div>
+          <h2 class="sec-title">Certifications</h2>
+        </div>
+        <div class="certs-list">
+            <a href="https://credentials.offsec.com/cffac9f0-c813-4eba-a490-5c57ed9e7aa4" target="_blank" class="cert-row">
+            <div class="cert-code">OSCP</div>
+            <div class="cert-info">
+              <strong>Offensive Security Certified Professional</strong>
+              <span>Offensive Security</span>
+            </div>
+            <div class="cert-status done">Achieved <span style="font-size:0.9rem">↗</span></div>
+          </a>
+
+          <a href="#certs" class="cert-row">
+            <div class="cert-code">OSEP</div>
+            <div class="cert-info">
+              <strong>Offensive Security Experienced Penetration Tester</strong>
+              <span>Offensive Security</span>
+            </div>
+            <div class="cert-status wip">In Progress <span style="font-size:0.9rem">↗</span></div>
+          </a>
+        </div>
+      </section>
+      
+      <section class="sec fade" id="thesis">
+        <div class="sec-header">
+          <div class="sec-num">04</div>
+          <h2 class="sec-title">Master's Thesis</h2>
+        </div>
+        <div class="thesis-card">
+          <div class="thesis-label">Research</div>
+          <h3>Autonomous LLM-based Penetration Testing Orchestrator</h3>
+          <p>
+            My thesis focuses on developing an advanced, autonomous LLM-based orchestrator designed to execute complex cybersecurity tasks using tools such as Nmap and BloodHound. To overcome major Generative AI limitations, such as high API costs and context window overflow, I engineered a "semantic compression layer". This system parses verbose tool outputs and provides the AI only with essential data, significantly reducing token consumption and preventing the model from losing focus on the correct attack paths.          </p>
+          <p>
+            Additionally, I integrated a dynamic memory management system that tracks recent commands and errors. This allows the model to learn from its mistakes, adapt its strategy, and avoid getting stuck in repetitive loops.
+          </p>
+          <p>
+            The effectiveness of these architectural choices was empirically validated through rigorous ablation studies and cross-model comparisons across 200 test runs. The results demonstrate that these optimizations are essential to prevent goal failure and excessive token consumption. Finally, I prioritized AI safety by testing the system’s resilience against prompt injection attacks, showing how specific prompt structures can protect the autonomous agent from manipulation by malicious inputs hidden in target files.
+          </p>
+          <div class="thesis-tags">
+            <span class="pill">LLM</span>
+            <span class="pill">AI Red Team</span>
+            <span class="pill">Pentest Automation</span>
+            <span class="pill">Active Directory</span>
+            <span class="pill">Web App</span>
+            <a href="thesis/thesis.html" class="btn" style="padding: 0.4rem 1rem; font-size: 0.7rem;">
+    View Full Case Study →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec fade" id="education">
+        <div class="sec-header">
+          <div class="sec-num">03</div>
+          <h2 class="sec-title">Education</h2>
+        </div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-meta">MSc · Computer Engineering</div>
+            <h3>Master of Science in Computer Engineering</h3>
+            <div class="edu-school">Politecnico di Milano · 2023 - 2026</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-meta">BSc · Computer Engineering</div>
+            <h3>Bachelor of Science in Computer Engineering</h3>
+            <div class="edu-school">Politecnico di Milano · 2020 - 2023</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec fade" id="prolabs">
+        <div class="sec-header">
+          <div class="sec-num">06</div>
+          <h2 class="sec-title">Pro Labs HTB</h2>
+        </div>
+        
+        <div class="pro-labs-grid">
+
+          <div class="pro-lab-card">
+            <img src="img/shinra.png" alt="Shinra Pro Lab" class="pro-lab-logo" />
+          </div>
+          
+          <div class="pro-lab-card">
+            <img src="img/ifrit.png" alt="Ifrit Pro Lab" class="pro-lab-logo" />
+          </div>
+          
+          <div class="pro-lab-card">
+            <img src="img/offshore.png" alt="Offshore Pro Lab" class="pro-lab-logo" />
+          </div>
+
+          <div class="pro-lab-card">
+            <img src="img/rastalabs.png" alt="RastaLabs Pro Lab" class="pro-lab-logo" />
+          </div>
+          
+          <div class="pro-lab-card">
+            <img src="img/zephyr.png" alt="Zephyr Pro Lab" class="pro-lab-logo" />
+          </div>
+
+          <div class="pro-lab-card">
+            <img src="img/dante.png" alt="Dante Pro Lab" class="pro-lab-logo" />
+          </div>
+
+
+        </div>
+      </section>
+
+      <section class="sec fade" id="writeups">
+        <div class="sec-header">
+          <div class="sec-num">05</div>
+          <h2 class="sec-title">Write-ups HTB</h2>
+        </div>
+
+        <div class="wu-controls">
+          <input type="text" id="wuSearch" class="wu-search" placeholder="Search machine name or OS...">
+          
+          <div class="wu-filters">
+            <button class="filter-btn" onclick="toggleFilter('AD', 'os')">AD</button>
+            <button class="filter-btn" onclick="toggleFilter('Windows', 'os')">Windows</button>
+            <button class="filter-btn" onclick="toggleFilter('Linux', 'os')">Linux</button>
+            
+            <span style="border-left: 1px solid var(--border); margin: 0 0.5rem; height: 20px;"></span>
+            
+            <button class="filter-btn" onclick="toggleFilter('Easy', 'diff')">Easy</button>
+            <button class="filter-btn" onclick="toggleFilter('Medium', 'diff')">Medium</button>
+            <button class="filter-btn" onclick="toggleFilter('Hard', 'diff')">Hard</button>
+            
+            <span style="border-left: 1px solid var(--border); margin: 0 0.5rem; height: 20px;"></span>
+            
+            <button class="filter-btn" onclick="activeFilters.diff=null; activeFilters.os=null; updateFilterButtons(); renderWriteups();">Reset</button>
+          </div>
+        </div>
+        
+        <div class="writeups-grid" id="wuContainer"></div>
+        <button id="loadMoreBtn" class="btn btn-ghost" style="margin: 2rem auto; display: none; align-items: center; gap: 0.5rem;" 
+            onclick="renderWriteups(document.querySelector('.filter-btn.active').innerText, document.getElementById('wuSearch').value, true)">
+            Load More Archives
+        </button>
+      </section>
+
+      <section class="sec fade" id="contact">
+        <div class="sec-header">
+          <div class="sec-num">06</div>
+          <h2 class="sec-title">Contact</h2>
+        </div>
+        <div class="contact-line">
+          <p>
+           Open to opportunities in penetration testing, red teaming, and cybersecurity research. This portfolio showcases my work and technical approach feel free to explore and get in touch.
+          </p>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <a href="mailto:lorenzoladina2001@gmail.com" class="btn">Email me</a>
+            <a href="https://www.linkedin.com/in/lorenzo-ladina-85b204288/" target="_blank" class="btn btn-ghost">LinkedIn</a>
+            <a href="https://github.com/LorenzoLadina" target="_blank" class="btn btn-ghost">GitHub</a>
+          </div>
+        </div>
+      </section>
+
+    </div></div><footer>
+    <span>© 2026 Lorenzo Ladina</span>
+    <span>Penetration Tester</span>
+  </footer>
+
+  <script src="writeups.js" defer></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // 1. Imposta AD come filtro predefinito all'avvio
+          if (typeof activeFilters !== "undefined") {
+              activeFilters.os = 'AD';
+              updateFilterButtons();
+              renderWriteups();
+          }
+
+          // 2. Ricerca in tempo reale (legge lo stato dei filtri correnti)
+          const searchInput = document.getElementById('wuSearch');
+          if (searchInput) {
+              searchInput.addEventListener('input', () => {
+                  renderWriteups(); // La funzione ora legge internamente searchInput.value
+              });
+          }
+
+          // 3. IntersectionObserver per le animazioni fade-in delle altre sezioni
+          const fader = new IntersectionObserver(entries => {
+              entries.forEach(e => { 
+                  if (e.isIntersecting) e.target.classList.add('in'); 
+              });
+          }, { threshold: 0.08 });
+
+          document.querySelectorAll('.fade').forEach(el => fader.observe(el));
+      });
+  </script>
+</body>
+</html>

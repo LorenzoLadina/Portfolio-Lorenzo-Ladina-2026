@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thesis Case Study — Autonomous LLM Pentest Orchestrator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="thesis_style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+    <div style="font-family: var(--mono); font-size: 0.75rem; color: var(--muted);">Research Project</div>
+  </nav>
+
+  <main class="container">
+    <header class="hero">
+      <span class="label">Master's Thesis · Politecnico di Milano · 2026</span>
+      <h1>Autonomous LLM-based Penetration Testing Orchestrator</h1>
+      <div class="meta">
+        <span><strong>Tech Stack</strong> Python, Gemini API</span>
+        <span><strong>Focus</strong> Offensive AI & Automation</span>
+      </div>
+    </header>
+
+    <section id="concept">
+      <h2>The Core Concept</h2>
+      <p>
+      The proposed framework acts as an intelligent middleware designed to emulate the cognitive and operational workflow of a human penetration tester. Instead of following traditional automated scanners that rely on a static execution tree, the system operates on a dynamic closed-loop architecture inspired by the "Observe, Orient, Decide, Act" (OODA) loop. At its center is an autonomous orchestrator that bridges the high-level strategic reasoning of Large Language Models (LLMs) with the low-level execution of standard offensive security tools. By continuously interpreting tool outputs, updating its internal state, and adapting its strategy based on the target environment's evolving security posture, the agent interacts intelligently with the network. Furthermore, to ensure safe operation and command chain integrity, all LLM-generated decisions are routed through a rigorous validation layer that checks against a whitelist of supported tools and prevents infinite execution loops
+      </p>
+      <p>
+      To overcome the severe context saturation issues that typically plague LLM-based agents, the system relies on two primary innovation layers: Semantic Compression and Strategic Memory Management. The Semantic Compression layer specifically targets "Vertical Bloat" by acting as a domain-specific dispatcher; it distills massive raw datasets, such as verbose BloodHound JSON graphs or noisy HTML DOMs, into highly optimized, token-efficient textual representations. Simultaneously, the framework mitigates "Horizontal Bloat"—the linear accumulation of command history—by implementing a dynamic Recon Summary. This continuous application of Memory Hygiene ensures that the Context Management Layer only feeds high-signal, deduplicated information to the model. Consequently, the system drastically reduces the LLM's cognitive drag, allowing the underlying model to focus exclusively on deep, forward-looking strategic pivoting rather than wasting compute on parsing historical noise
+      </p>
+    </section>
+
+    <section id="demo-AD">
+      <h2>Video Demonstration on Active Directory (x2 speedup)</h2>
+      <p>
+        The following demo showcases the orchestrator's ability to autonomously identify and exploit multiple vulnerabilities, including Kerberoasting, ACL misconfigurations, and perform Privilege Escalation in a simulated Active Directory domain reaching Domain Admin privileges. The system parses environment data, reasons about the attack surface, and selects the optimal toolset for exploitation.
+      </p>
+      <div class="media-box">
+        <div class="video-container">
+          <video controls poster="placeholder.jpg">
+            <source src="videos/demo-network-speedup.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">Autonomous exploitation workflow on an Active Directory target.</div>
+      </div>
+    </section>
+
+    <section id="demo-web">
+      <h2>Video Demonstration on Web Application (x2 speedup)</h2>
+      <p>
+        The following demo showcases the orchestrator's ability to autonomously identify multiple Web vulnerabilities, including SQL Injection, LFI, RCE and XSS on a simulated web application target. The agent performs reconnaissance, identifies vulnerable endpoints, and executes exploitation PoC without human intervention.
+      </p>
+      <div class="media-box">
+        <div class="video-container">
+          <video controls poster="placeholder.jpg">
+            <source src="videos/demo-web-speedup.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">Autonomous exploitation workflow on a web application target.</div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <h2>Agentic Architecture</h2>
+      <p>The system utilizes a <strong>Observe-Orient-Decide-Act Loop</strong> to manage the offensive lifecycle:</p>
+      
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <span class="step-title">Observe</span>
+            <p>Execution of a security tool and collection of raw results directly from the target network or application.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <span class="step-title">Orient</span>
+            <p>Pre-processing and parsing of the raw data via the Semantic Compression Layer, followed by an update of the Recon Summary to maintain the current state of the assessment</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <span class="step-title">Decide</span>
+            <p>Presenting the summarized, noise-free context to the LLM so it can determine the next tactical objective or pivot point</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <span class="step-title">Act</span>
+            <p>Translating the LLM’s high-level decision into a correctly formatted and validated command-line execution for the next tool in the chain</p>
+          </div>  
+      </div>
+
+      <div class="media-box">
+        <img src="img/OODA.png" alt="System Architecture" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">High-level architecture of the LLM-powered pentest agent.</div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <h2>Key Results</h2>
+      <p>
+      The experimental evaluation of the framework demonstrated significant improvements in operational scalability, efficiency, and security. By implementing the Semantic Compression layer, the system successfully mitigated "Vertical Bloat," reducing the token footprint of raw tool outputs—such as complex BloodHound Active Directory graphs—by over 85%. This distillation prevented context saturation and preserved the model's ability to execute deep, graph-based strategic reasoning. Furthermore, the introduction of Memory Hygiene via a dynamic Recon Summary effectively eliminated "Horizontal Bloat". 
+      </p>
+      <div class="media-box">
+        <img src="img/ablation1.1.png" alt="System Architecture" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Verification of the Semantic Compression Layer's Effectiveness in AD scenario.</div>
+      </div>
+      <div class="media-box">
+        <img src="img/ablation1.2.png" alt="System Architecture" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Verification of the Semantic Compression Layer's Effectiveness in Web Application scenario.</div>
+      </div>
+      <div class="media-box">
+        <img src="img/ablation2.1.png" alt="System Architecture" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Verification of the Memory Hygiene Mechanism in AD scenario.</div>
+      </div>
+      <div class="media-box">
+        <img src="img/ablation2.2.png" alt="System Architecture" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Verification of the Memory Hygiene Mechanism in Web Application scenario.</div>
+      </div>
+    </section>
+
+    <footer>
+      <p style="margin-bottom: 1.5rem;">Interested in the full research paper or technical details? Let's connect!</p><br>
+      <a href="../index.html#contact" class="back-link">← Back to Contact</a>
+    </footer>
+  </main>
+
+</body>
+</html>
