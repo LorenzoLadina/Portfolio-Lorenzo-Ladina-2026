@@ -5,7 +5,7 @@
     --ink:     #ededed;
     --ink2:    #a1a1aa;
     --muted:   #52525b;
-    --accent:  #ef4444; /* Red Team Accent */
+    --accent:  #ef4444; 
     --border:  #27272a;
     
     /* Typography - Sans-serif focus */
@@ -60,10 +60,9 @@ nav {
 .nav-links a:hover { color: var(--ink); }
 
 /* ── HERO ── */
-/* ── HERO (Layout Split) ── */
     .hero {
       padding: 14rem 4rem 7rem;
-      max-width: 1100px; /* Allargata per ospitare entrambi i blocchi */
+      max-width: 1100px; 
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -76,10 +75,10 @@ nav {
       max-width: 650px;
     }
 
-    /* Foto Profilo sulla destra */
+   
     .hero-profile-pic-wrapper {
       flex-shrink: 0;
-      width: 280px; /* Dimensione generosa */
+      width: 280px; 
       height: 280px;
       border-radius: 50%;
       border: 4px solid var(--accent);
@@ -99,7 +98,7 @@ nav {
     /* Adattamento per mobile */
     @media (max-width: 900px) {
       .hero {
-        flex-direction: column-reverse; /* Foto sopra al testo su mobile */
+        flex-direction: column-reverse; 
         text-align: center;
         padding: 9rem 1.5rem 4rem;
         gap: 2.5rem;
@@ -113,7 +112,7 @@ nav {
         width: 200px;
         height: 200px;
       }
-      .hero-eyebrow::before { display: none; } /* Pulizia estetica su mobile */
+      .hero-eyebrow::before { display: none; } 
     }
 .hero h1 {
     font-family: var(--sans);
@@ -265,7 +264,7 @@ nav {
     font-size: 1.05rem;
     color: var(--ink2);
     line-height: 1.8;
-    max-width: 800px; /* Mantiene il testo leggibile senza allargarlo troppo */
+    max-width: 800px;
 }
 .skills-text-block p {
     margin-bottom: 1.5rem;
@@ -413,7 +412,6 @@ a.cert-row {
       padding-top: 1.5rem;
     }
 
-/* Rende il link un blocco che non altera il colore del testo */
 .thesis-card-link {
     text-decoration: none;
     color: inherit;
@@ -421,40 +419,26 @@ a.cert-row {
     transition: transform 0.2s ease;
 }
 
-/* Modifica la classe esistente per supportare l'hover */
 .thesis-card {
     border: 1px solid var(--border);
     background: var(--bg2);
     padding: 2rem;
     border-radius: 6px;
-    transition: all 0.3s ease; /* Transizione fluida per l'hover */
+    transition: all 0.3s ease; 
 }
 
-/* Effetto al passaggio del mouse */
+
 .thesis-card-link:hover .thesis-card {
-    background: var(--bg); /* Diventa leggermente più scuro/chiaro a seconda del bg */
+    background: var(--bg); 
     border-color: var(--muted);
-    transform: translateY(-4px); /* Effetto sollevamento */
+    transform: translateY(-4px); 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Effetto sul titolo quando passi sopra la card */
 .thesis-card-link:hover h3 {
     color: var(--accent);
 }
 
-/* Stile per il "finto" bottone in basso a destra */
-.btn-fake {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    padding: 0.4rem 1rem;
-    border: 1px solid var(--ink);
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 4px;
-    font-weight: 500;
-    margin-left: auto; /* Lo spinge a destra se il contenitore è flex */
-}
 
 .thesis-card-link:hover .btn-fake {
     background: transparent;
@@ -505,12 +489,12 @@ a.cert-row {
       background: rgba(239, 68, 68, 0.05);
     }
 
-    /* Griglia che va a capo invece di scorrere */
+    
     .writeups-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
-      overflow-x: visible; /* Rimuoviamo lo scroll orizzontale */
+      overflow-x: visible;
     }
 
     .writeup-card {
@@ -661,12 +645,12 @@ footer {
     display: flex;
     gap: 1.25rem;
     overflow-x: auto;
-    padding-bottom: 1.5rem; /* Spazio per la scrollbar */
+    padding-bottom: 1.5rem; 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 }
 
-/* Scrollbar personalizzata per lo scorrimento orizzontale */
+
 .pro-labs-grid::-webkit-scrollbar { height: 8px; }
 .pro-labs-grid::-webkit-scrollbar-track { background: var(--bg2); border-radius: 4px; }
 .pro-labs-grid::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
@@ -675,13 +659,13 @@ footer {
 .pro-lab-card {
     display: flex;
     flex-direction: column;
-    flex: 0 0 280px; /* Larghezza fissa leggermente inferiore */
+    flex: 0 0 280px; 
     scroll-snap-align: start;
     background: var(--bg2);
     border: 1px solid var(--border);
     padding: 1.5rem;
     border-radius: 6px;
-    align-items: center; /* Centra il contenuto */
+    align-items: center; 
     text-align: center;
 }
 

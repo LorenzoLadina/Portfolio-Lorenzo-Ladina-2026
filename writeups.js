@@ -1,5 +1,3 @@
-// writeups.js
-
 const data = [
     // --- LINUX MACHINES ---
     { name: "BoardLight", diff: "Easy", os: "Linux", desc: "HTB Linux machine writeup.", tags: ["Linux"], url: "https://joyous-spinach-49f.notion.site/BoardLight-13ef368987d180669855dea9e8b97c6e" },
@@ -104,16 +102,16 @@ function renderWriteups(isLoadMore = false) {
     }
 
     const filtered = data.filter(item => {
-        // Verifica Difficoltà
+        
         const matchesDiff = !activeFilters.diff || item.diff === activeFilters.diff;
         
-        // Verifica OS / AD
+        
         let matchesOS = !activeFilters.os || item.os === activeFilters.os;
         if (activeFilters.os === 'AD') {
             matchesOS = item.tags.includes('AD');
         }
 
-        // Verifica Ricerca Testuale
+       
         const matchesSearch = item.name.toLowerCase().includes(search) || 
                               item.tags.join(' ').toLowerCase().includes(search);
 
@@ -148,16 +146,16 @@ function renderWriteups(isLoadMore = false) {
     }
 }
 
-// Nuova funzione per gestire il toggle dei filtri
+
 window.toggleFilter = (value, category) => {
-    // Se clicchi lo stesso filtro già attivo, lo disattivi (toggle)
+    
     if (activeFilters[category] === value) {
         activeFilters[category] = null;
     } else {
         activeFilters[category] = value;
     }
 
-    // Aggiorna UI dei bottoni
+    
     updateFilterButtons();
     renderWriteups();
 };

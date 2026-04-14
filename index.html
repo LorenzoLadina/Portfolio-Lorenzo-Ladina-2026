@@ -148,7 +148,7 @@
               <span class="pill">Pentest Automation</span>
               <span class="pill">Active Directory</span>
               <span class="pill">Web App</span><br>
-              <span class="btn">View Full Case Study →</span>
+              <span class="btn btn-ghost">View Full Case Study →</span>
             </div>
           </div>
         </a>
@@ -267,14 +267,14 @@
   <script src="writeups.js" defer></script>
   <script>
       document.addEventListener('DOMContentLoaded', () => {
-          // 1. Imposta AD come filtro predefinito all'avvio
+         
           if (typeof activeFilters !== "undefined") {
               activeFilters.os = 'AD';
               updateFilterButtons();
               renderWriteups();
           }
 
-          // 2. Ricerca in tempo reale (legge lo stato dei filtri correnti)
+          
           const searchInput = document.getElementById('wuSearch');
           if (searchInput) {
               searchInput.addEventListener('input', () => {
@@ -282,7 +282,7 @@
               });
           }
 
-          // 3. IntersectionObserver per le animazioni fade-in delle altre sezioni
+          
           const fader = new IntersectionObserver(entries => {
               entries.forEach(e => { 
                   if (e.isIntersecting) e.target.classList.add('in'); 
