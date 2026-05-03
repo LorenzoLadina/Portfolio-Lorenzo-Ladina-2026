@@ -27,7 +27,7 @@
       <div class="hero-eyebrow">Penetration Tester · Offensive Security</div>
       <h1>nerdy friends<br>call me<br><em>whit3g4ndalf</em></h1>
       <p class="hero-bio">
-      2+ years specializing in Active Directory attack chains and red team operations. OSCP+ certified, currently pursuing OSEP. <br> MSc in Computer Science & Engineering at Polimi with a focus on AI-driven pentest automation.  Always looking to improve my skills and learning new things on platform like Hack The Box
+      2+ years specializing in Active Directory attack chains, red team operations and web application penetration testing. OSCP+ certified, currently pursuing OSEP. <br> MSc in Computer Science & Engineering at Polimi with a focus on AI-driven pentest automation.  Always looking to improve my skills and learning new things on platform like Hack The Box
       </p>
       <div class="hero-pills">
         <span class="pill">OSCP</span>
@@ -69,15 +69,16 @@
         <div class="sidebar-label">Quick info</div>
         <div class="sidebar-meta">
           <strong>Work Experience</strong>
-          <span>2 years</span>
+          <span>2+ years</span>
           
           <strong>Focus</strong>
           <span>Active Directory</span>
           <span>Red Team Operations</span>
+          <span>Web Application Penetration Testing</span>
           
           <strong>Degree</strong>
           <span>BSc + MSc</span>
-          <span>Computer Science & Engineering</span>
+          <span>Computer Science & Engineering @PoliMi</span>
         </div>
       </div>
     </aside>
@@ -132,16 +133,31 @@
         </div>
         <a href="thesis/thesis.html" class="thesis-card-link">
           <div class="thesis-card">
-            <div class="thesis-label">Research</div>
+            <div class="thesis-label">Research &middot; Politecnico di Milano &middot; Advisor: Prof. Stefano Zanero</div>
             <h3>Autonomous LLM-based Penetration Testing Orchestrator</h3>
+
+            <div class="thesis-metrics">
+              <div class="thesis-metric">
+                <span class="thesis-metric-value">&gt;85%</span>
+                <span class="thesis-metric-label">token reduction via Semantic Compression</span>
+              </div>
+              <div class="thesis-metric">
+                <span class="thesis-metric-value">81%</span>
+                <span class="thesis-metric-label">cognitive overhead reduction via Memory Hygiene</span>
+              </div>
+              <div class="thesis-metric">
+                <span class="thesis-metric-value">100% &rarr; 10%</span>
+                <span class="thesis-metric-label">Indirect Prompt Injection success rate</span>
+              </div>
+            </div>
+
             <p>
-              My thesis focuses on developing an advanced, autonomous LLM-based orchestrator designed to execute complex cybersecurity tasks using tools such as Nmap and BloodHound. To overcome major Generative AI limitations, such as high API costs and context window overflow, I engineered a "semantic compression layer". This system parses verbose tool outputs and provides the AI only with essential data, significantly reducing token consumption and preventing the model from losing focus on the correct attack paths.          </p>
-            <p>
-              Additionally, I integrated a dynamic memory management system that tracks recent commands and errors. This allows the model to learn from its mistakes, adapt its strategy, and avoid getting stuck in repetitive loops.
+              An autonomous middleware architecture that bridges LLM strategic reasoning with low-level offensive security tooling (Nmap, BloodHound, NetExec). The framework introduces a Semantic Compression layer that distills verbose tool outputs &mdash; such as BloodHound AD graphs and raw HTML DOMs &mdash; into token-efficient representations, and a dynamic Recon Summary that eliminates context saturation across long-running engagements.
             </p>
             <p>
-              The effectiveness of these architectural choices was empirically validated through rigorous ablation studies and cross-model comparisons across 200 test runs. The results demonstrate that these optimizations are essential to prevent goal failure and excessive token consumption. Finally, I prioritized AI safety by testing the system’s resilience against prompt injection attacks, showing how specific prompt structures can protect the autonomous agent from manipulation by malicious inputs hidden in target files.
-            </p> 
+              A core research contribution is the empirical analysis of Indirect Prompt Injection against autonomous agents: naive approaches including JSON-wrapped outputs showed 100% vulnerability. A Defense-in-Depth architecture combining TOON encoding, semantic pruning, and deterministic command validation reduced the attack success rate to 10% across 30 automated runs.
+            </p>
+            
             <div class="thesis-tags">
               <span class="pill">LLM</span>
               <span class="pill">AI Red Team</span>

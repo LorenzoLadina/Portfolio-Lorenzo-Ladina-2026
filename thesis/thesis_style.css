@@ -1,11 +1,13 @@
-
 :root {
     --bg:      #0a0a0a;
     --bg2:     #141414;
+    --bg3:     #1c1c1c;
     --ink:     #ededed;
     --ink2:    #a1a1aa;
     --muted:   #52525b;
     --accent:  #ef4444;
+    --green:   #22c55e;
+    --red:     #ef4444;
     --border:  #27272a;
     --sans:    'Geist', sans-serif;
     --mono:    'Geist Mono', monospace;
@@ -25,8 +27,39 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem
 .hero { padding: 4rem 0; border-bottom: 1px solid var(--border); margin-bottom: 4rem; }
 .label { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
 h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 2rem; }
-.meta { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); display: flex; gap: 2rem; }
+.meta { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); display: flex; gap: 2rem; flex-wrap: wrap; }
 .meta strong { color: var(--ink2); font-weight: 500; }
+
+/* ── STATS CARDS ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+}
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+.stat-card .stat-value {
+  font-family: var(--mono);
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-card .stat-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
 
 /* CONTENT SECTIONS */
 section { margin-bottom: 5rem; }
@@ -45,20 +78,85 @@ p { font-size: 1.05rem; color: var(--ink2); margin-bottom: 1.5rem; }
 .step-num { font-family: var(--mono); color: var(--accent); font-weight: 600; }
 .step-title { font-weight: 500; color: var(--ink); display: block; margin-bottom: 0.25rem; }
 
+/* ── IPI HIGHLIGHT BOXES ── */
+.highlight-box {
+  border-left: 3px solid;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--bg2);
+}
+.highlight-box.danger  { border-color: var(--red); }
+.highlight-box.success { border-color: var(--green); }
+.highlight-box strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+.highlight-box.danger  strong { color: var(--red); }
+.highlight-box.success strong { color: var(--green); }
+.highlight-box p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink2);
+}
+
+/* ── IPI RESULTS TABLE ── */
+.ipi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ipi-table th {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--bg3);
+}
+.ipi-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink2);
+  vertical-align: middle;
+}
+.ipi-table tr:last-child td { border-bottom: none; }
+.ipi-table .bad  { color: var(--red);   font-weight: 600; font-family: var(--mono); }
+.ipi-table .good { color: var(--green); font-weight: 600; font-family: var(--mono); }
+.ipi-table .mono { font-family: var(--mono); color: var(--ink2); }
+
+/* inline code tag */
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--ink2);
+}
+
+/* FOOTER */
 footer {
   border-top: 1px solid var(--border);
-  padding: 2.5rem 4rem;
+  padding: 2.5rem 0;
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: var(--ink2); 
+  color: var(--ink2);
 }
-
-footer a {
-  transition: color 0.2s;
-}
-
-footer a:hover {
-  color: var(--accent);
-}
+footer p { font-size: 0.85rem; color: var(--ink2); }
+footer a { transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
 
 @media (max-width: 600px) { nav { padding: 1.25rem 2rem; } }
