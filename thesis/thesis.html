@@ -19,10 +19,10 @@
   <main class="container">
     <header class="hero">
       <span class="label">Master's Thesis · Politecnico di Milano · 2026 · Advisor: Prof. Stefano Zanero</span>
-      <h1>Autonomous LLM-based Penetration Testing Orchestrator</h1>
+      <h1>An AI-Driven Penetration Testing Framework for Autonomous Offensive Security</h1>
       <div class="meta">
-        <span><strong>Tech Stack</strong> Python · Flask · SQLite · Gemini API · BloodHound · BeautifulSoup · Nmap · NetExec</span>
-        <span><strong>Focus</strong> Offensive AI &amp; Autonomous Security Agents</span>
+        <span><strong>Badges / Tags</strong> AI & Cybersecurity · LLM Agents ·  Offensive Security Automated Pentesting · Python · Google Gemini API (2.5 / 3.0 Flash) · Active Directory · WAPT</span>
+        <span><strong>Key Highlights</strong> Developed during my work as a Penetration Tester, integrating field experience with advanced academic research.</span>
       </div>
 
       <!-- Key metrics — visible immediately on load -->
@@ -45,10 +45,13 @@
     <section id="concept">
       <h2>The Core Concept</h2>
       <p>
-        The proposed framework acts as an intelligent middleware designed to emulate the cognitive and operational workflow of a human penetration tester. Instead of following traditional automated scanners that rely on a static execution tree, the system operates on a dynamic closed-loop architecture inspired by the "Observe, Orient, Decide, Act" (OODA) loop. At its center is an autonomous orchestrator that bridges the high-level strategic reasoning of Large Language Models (LLMs) with the low-level execution of standard offensive security tools. By continuously interpreting tool outputs, updating its internal state, and adapting its strategy based on the target environment's evolving security posture, the agent interacts intelligently with the network. Furthermore, to ensure safe operation and command chain integrity, all LLM-generated decisions are routed through a rigorous validation layer that checks against a whitelist of supported tools and prevents infinite execution loops.
+        Manual penetration testing does not scale: it is expensive, bottlenecked by a shortage of skilled professionals, and vulnerable to human fatigue during long engagements. The industry's first attempt to fix this — coupling an LLM directly to security tools — trades one set of problems for another: LLMs face Context Saturation on massive raw tool outputs, Cognitive Drag from ever-growing command histories, and a brand-new attack surface in the form of Prompt Injection.
       </p>
       <p>
-        To overcome the severe context saturation issues that typically plague LLM-based agents, the system relies on two primary innovation layers: Semantic Compression and Strategic Memory Management. The Semantic Compression layer specifically targets "Vertical Bloat" by acting as a domain-specific dispatcher; it distills massive raw datasets, such as verbose BloodHound JSON graphs or noisy HTML DOMs, into highly optimized, token-efficient textual representations. Simultaneously, the framework mitigates "Horizontal Bloat"—the linear accumulation of command history—by implementing a dynamic Recon Summary. This continuous application of Memory Hygiene ensures that the Context Management Layer only feeds high-signal, deduplicated information to the model. Consequently, the system drastically reduces the LLM's cognitive drag, allowing the underlying model to focus exclusively on deep, forward-looking strategic pivoting rather than wasting compute on parsing historical noise.
+        The proposed framework acts as an intelligent middleware orchestrator that bridges the high-level strategic reasoning of Large Language Models with the low-level execution of standard offensive security tools, emulating the cognitive and operational workflow of a human penetration tester. Instead of following traditional automated scanners that rely on a static execution tree, the system operates on a dynamic closed-loop architecture inspired by the "Observe, Orient, Decide, Act" (OODA) loop. By continuously interpreting tool outputs, updating its internal state, and adapting its strategy based on the target environment's evolving security posture, the agent interacts intelligently with the network. To ensure safe operation and command chain integrity, every LLM-generated decision is routed through a rigorous validation layer that checks against a whitelist of supported tools and prevents infinite execution loops.
+      </p>
+      <p>
+        To overcome the severe context saturation issues that typically plague LLM-based agents, the orchestrator relies on two primary innovation layers: Semantic Compression and Strategic Memory Hygiene. Semantic Compression specifically targets "Vertical Bloat" by acting as a domain-specific dispatcher; it distills massive raw datasets, such as verbose BloodHound JSON graphs or noisy HTML DOMs, into highly optimized, token-efficient textual representations. Simultaneously, the framework mitigates "Horizontal Bloat" — the linear accumulation of command history — by implementing a dynamic Recon Summary. This continuous Memory Hygiene ensures that the Context Management Layer only feeds high-signal, deduplicated information to the model, drastically reducing the LLM's cognitive drag and letting it focus on deep, forward-looking strategic pivoting rather than parsing historical noise.
       </p>
     </section>
 
@@ -94,7 +97,7 @@
 
     <section id="architecture">
       <h2>Agentic Architecture</h2>
-      <p>The system utilizes a <strong>Observe-Orient-Decide-Act Loop</strong> to manage the offensive lifecycle:</p>
+      <p>The system utilizes an <strong>Observe-Orient-Decide-Act Loop</strong> to manage the offensive lifecycle:</p>
 
       <div class="steps">
         <div class="step">
@@ -122,37 +125,64 @@
           <div class="step-num">04</div>
           <div>
             <span class="step-title">Act</span>
-            <p>Translating the LLM's high-level decision into a correctly formatted and validated command-line execution for the next tool in the chain.</p>
+            <p>Validating the LLM's decision against the tool whitelist and translating it into a correctly formatted command-line execution for the next tool in the chain.</p>
           </div>
         </div>
       </div>
 
       <div class="media-box">
-        <img src="img/OODA.png" alt="System Architecture" style="width:100%; display:block; filter: brightness(0.9);">
-        <div class="caption">High-level architecture of the LLM-powered pentest agent.</div>
+        <img src="img/ooda-loop.png" alt="Observe-Orient-Decide-Act architecture diagram" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">The Observe-Orient-Decide-Act loop governing the offensive lifecycle.</div>
+      </div>
+    </section>
+
+    <section id="pipeline">
+      <h2>Semantic Compression &amp; Strategic Memory Hygiene</h2>
+      <p>
+        Every raw tool output first passes through a <strong>Semantic Compression</strong> pipeline: a tool dispatcher routes the raw stdout/stderr feed to one of sixteen dedicated parsing functions — from Nmap and NetExec to curl — which deterministically extract the signal via regex matching, key-field traversal, and metadata removal before state normalization generates a high-signal textual context for the LLM.
+      </p>
+      <div class="media-box">
+        <img src="img/semantic-compression-pipeline.png" alt="Semantic compression pipeline diagram" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Deterministic pipeline turning raw tool logs into noise-free structured intelligence.</div>
+      </div>
+      <div class="media-box">
+        <img src="img/semantic-compression-example.png" alt="Semantic compression worked example on an Nmap scan" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">A raw Nmap scan distilled by the compression algorithm into a compact parsed-results block before reaching the prompt.</div>
+      </div>
+      <p>
+        Complementing this, <strong>Strategic Memory Hygiene</strong> keeps the agent's working context clean over long engagements. Every execution, result, and error is persisted to a local SQLite ledger, from which a dynamic context window is drawn via SQL queries limited to the last errors and successes. Selective payload pruning discards outputs already consolidated into the state, and the resulting <em>Recon Summary</em> — capped to a sliding window of 3 recent errors and 5 recent successes — is what actually gets injected into the LLM's reasoning loop, preventing repeated steps and controlling token consumption.
+      </p>
+      <div class="media-box">
+        <img src="img/memory-hygiene-pipeline.png" alt="Strategic memory hygiene pipeline diagram" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Database-backed state management driving dynamic context windowing.</div>
+      </div>
+      <div class="media-box">
+        <img src="img/recon-summary.png" alt="Example of a generated recon summary prompt" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">A distilled Recon Summary — current objective, recent errors, and recent successes — as injected into the model's context.</div>
       </div>
     </section>
 
     <section id="impact">
       <h2>Key Results</h2>
       <p>
-        The experimental evaluation of the framework demonstrated significant improvements in operational scalability, efficiency, and security. By implementing the Semantic Compression layer, the system successfully mitigated "Vertical Bloat," reducing the token footprint of raw tool outputs—such as complex BloodHound Active Directory graphs—by over 85%. This distillation prevented context saturation and preserved the model's ability to execute deep, graph-based strategic reasoning. Furthermore, the introduction of Memory Hygiene via a dynamic Recon Summary effectively eliminated "Horizontal Bloat," cutting peak Thinking Token consumption by 81% in Active Directory scenarios.
+        The experimental evaluation of the framework demonstrated significant improvements in operational scalability, efficiency, and security. By implementing the Semantic Compression layer, the system successfully mitigated "Vertical Bloat," cutting peak prompt size in the Active Directory lab from 38,339 to 4,418 tokens (&gt;85% reduction) and in the Web Application lab from 23,234 to 6,465 tokens (&gt;72% reduction). The introduction of Memory Hygiene via a dynamic Recon Summary then eliminated "Horizontal Bloat," cutting peak Thinking Token consumption from 10,773 to 1,961 tokens (~81% reduction) in the Active Directory scenario.
       </p>
       <div class="media-box">
-        <img src="img/ablation1.1.png" alt="Semantic Compression AD" style="width:100%; display:block; filter: brightness(0.9);">
-        <div class="caption">Semantic Compression layer effectiveness — Active Directory scenario.</div>
+        <img src="img/ablation-ad.png" alt="Ablation study results — Active Directory lab" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Ablation study — Semantic Compression and Memory Hygiene effectiveness in the Active Directory lab.</div>
       </div>
       <div class="media-box">
-        <img src="img/ablation1.2.png" alt="Semantic Compression Web" style="width:100%; display:block; filter: brightness(0.9);">
-        <div class="caption">Semantic Compression layer effectiveness — Web Application scenario.</div>
+        <img src="img/ablation-web.png" alt="Ablation study results — Web Application lab" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Ablation study — Semantic Compression and Memory Hygiene effectiveness in the Web Application lab.</div>
       </div>
+
+      <h3 style="margin-top: 2.5rem;">Quantitative Benchmarking</h3>
+      <p>
+        Beyond the single-shot ablations, the orchestrator was benchmarked end-to-end across 200 fully autonomous runs (50 runs per configuration), pitting Google Gemini 2.5 Flash against Gemini 3.0 Flash on both the Active Directory privilege-escalation lab and the Vulnerable Web Application lab. Both models reached a 100% success rate on the Active Directory lab at a cost of roughly $0.01–$0.02 per run; on the Web Application lab, Gemini 3.0 Flash also reached 100% success, while Gemini 2.5 Flash succeeded in 52% of runs — evidence that reasoning quality, not just orchestration, still matters for the hardest pivots.
+      </p>
       <div class="media-box">
-        <img src="img/ablation2.1.png" alt="Memory Hygiene AD" style="width:100%; display:block; filter: brightness(0.9);">
-        <div class="caption">Memory Hygiene mechanism — Active Directory scenario.</div>
-      </div>
-      <div class="media-box">
-        <img src="img/ablation2.2.png" alt="Memory Hygiene Web" style="width:100%; display:block; filter: brightness(0.9);">
-        <div class="caption">Memory Hygiene mechanism — Web Application scenario.</div>
+        <img src="img/benchmarking.png" alt="Quantitative benchmarking results table across 200 autonomous runs" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">200 autonomous execution runs across two LLM engines and two lab environments.</div>
       </div>
     </section>
 
@@ -169,8 +199,13 @@
       </div>
 
       <p>
-        The framework addresses this with a <strong>Defense-in-Depth</strong> strategy across four architectural layers: automatic output escaping, structural isolation via TOON (Task-Oriented Output Notation) encoding, semantic pruning as attack surface reduction, and post-generation command validation against a strict whitelist.
+        The framework addresses this with a <strong>Defense-in-Depth</strong> strategy across four architectural layers, all enforced by the orchestrator before untrusted content ever reaches the LLM agent: automatic output escaping, structural isolation, semantic compression as attack-surface reduction, and post-generation command validation against a strict whitelist.
       </p>
+
+      <div class="media-box">
+        <img src="img/defense-in-depth.png" alt="Defense-in-depth prompt injection mitigation diagram" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">Multi-layered deterministic filtering standing between the target environment's payload and the LLM agent.</div>
+      </div>
 
       <table class="ipi-table">
         <thead>
@@ -206,6 +241,11 @@
       <div class="highlight-box success">
         <strong>Key insight: Cognitive Friction as a security signal</strong>
         <p>The spike in Thinking Tokens under V3 (averaging 1033, peaking at 2291 in the single failed run) is evidence that the orchestrator's structural constraints force the model to actively resolve the semantic conflict between trusted instructions and injected payload. The architecture makes attacks computationally expensive for the model to accept — and the single V3 failure required nearly 4× more reasoning overhead than successful V1 attacks.</p>
+      </div>
+
+      <div class="media-box">
+        <img src="img/security-stress-test.png" alt="Security stress test results comparing undefended and defense-in-depth configurations" style="width:100%; display:block; filter: brightness(0.9);">
+        <div class="caption">30 targeted runs against Indirect Prompt Injection payloads: a 90-point drop in attack success rate under Defense-in-Depth.</div>
       </div>
 
       <p>
